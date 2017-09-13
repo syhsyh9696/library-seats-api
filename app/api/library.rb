@@ -1,10 +1,10 @@
-module Api
+module API
   class Library < Grape::API
-    version 'v1', using: :param # Define API::Version
+    version 'v1', using: :path # Define API::Version
     format :json # Define return format
 
     helpers do
-      def current_user_data(username, password)
+      def user_history(username, password)
         username = username.to_s; password = password.to_s; temp = {}
         page = Mechanize.new
         page.get "http://seat.ujn.edu.cn/rest/auth?username=#{username}&password=#{password}"
@@ -20,11 +20,14 @@ module Api
         temp['status'] = data['status']; temp['data'] = data['data']['reservations']
         temp
       end
+
     end
 
-    post '/history' do
-      current_user_data(params['username'], params['password'])
+    namespace :library do
+      get '/history/:number' do
+        user_history(params[:number], params[:number])
+      end
+
     end
   end
-
 end

@@ -1,4 +1,4 @@
-module Api
+module API
   class Test < Grape::API
     version 'v1', using: :param # Define API::Version
     format :json # Define return format
