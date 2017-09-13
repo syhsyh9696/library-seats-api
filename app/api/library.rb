@@ -61,7 +61,17 @@ module API
       end
 
       def fav_seat(username, password)
-        page = Mechanize.new
+        page = Mechanize.new; result = []
+        page.get "http://seat.ujn.edu.cn/"
+        page.get "http://seat.ujn.edu.cn/rest/auth?username=#{username}&password=#{password}"
+        page.get "http://seat.ujn.edu.cn/freeBook/fav"
+
+        doc = Nokogiri::HTML(page.page.body)
+        doc.search("//div[@id='favSeatList']/div/ul/li/dl/dd").each do |item|
+          result << { :seat => item.text }
+        end
+
+        result
       end
     end
 
@@ -86,6 +96,13 @@ module API
         remain_seats_count
       end
 
+      get '/fav/:number' do
+        fav_seat(params[:number], params[:number])
+      end
+
+      get '/fav/:number/:password' do
+        fav_seat(params[:number], params[:password])
+      end
 
     end
   end
