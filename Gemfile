@@ -40,6 +40,7 @@ gem 'grape'
 gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'mechanize'
+gem 'nokogiri'
 
 
 group :development, :test do
