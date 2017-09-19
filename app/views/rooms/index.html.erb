@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>FLOOR</td>
+        <td>SEATS</td>
+        <td>CAMPUS</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(room.id, room_path(room)) %></td>
+          <td><%= room.name %></td>
+          <td><%= room.floor %></td>
+          <td><%= room.seat_counts %></td>
+          <td><%= room.campus %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h2><%= @room.name %></h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>SEAT_ID</td>
+        <td>SEAT_NAME</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @seats.each do |seat| %>
+        <tr>
+          <td>#</td>
+          <td><%= seat.id %></td>
+          <td><%= seat.seat_id %></td>
+          <td><%= seat.seat_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
