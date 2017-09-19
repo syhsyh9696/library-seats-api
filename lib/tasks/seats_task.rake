@@ -8,10 +8,21 @@ task :display_token, [:username, :password] do |t, params|
   puts token(params.username, params.password)
 end
 
-desc 'Get all tasks'
-task :display_all_tasks => :environment do
-  Task.all.each do |task|
-    puts task
+desc 'Run all booking tasks'
+task :run_all_tasks => :environment do
+  page = Mechanize.new
+
+  Task.find_each do |task|
+    url = "http://seat.ujn.edu.cn/rest/v2/freeBook"
+    data = {
+      "token" => token(task.username, task.password),
+      "startTime" => task.start,
+      "endTime" => task.end,
+      "seat" => task.seat.to_s,
+      "date" => (Time.new + 86400).strftime("%Y-%m-%d")
+    }
+
+    page.post(url, data)
   end
 end
 
