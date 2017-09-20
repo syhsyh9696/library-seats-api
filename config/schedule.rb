@@ -18,11 +18,17 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :environment, "development"
+set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every :day, :at => '05:00am' do
+every 1.day, :at => '05:00am' do
   rake "run_all_tasks"
 end
 
-every :day, :at => '05:01am' do
+every 1.day, :at => '05:01am' do
+  rake "run_all_tasks"
+end
+
+every 1.day, :at => '11:20' do
   rake "run_all_tasks"
 end
