@@ -21,14 +21,14 @@
 set :environment, "development"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 1.day, :at => '05:00am' do
+every :day, :at => '05:00am' do
   rake "run_all_tasks"
 end
 
-every 1.day, :at => '05:01am' do
+every :day, :at => '05:01am' do
   rake "run_all_tasks"
 end
 
-every 1.day, :at => '12:25pm' do
+every :day, :at => '05:05am' do
   rake "run_all_tasks"
 end
