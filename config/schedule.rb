@@ -29,6 +29,6 @@ every 1.day, :at => '05:01am' do
   rake "run_all_tasks"
 end
 
-every 1.day, :at => '12:10' do
+every 1.day, :at => '12:25pm' do
   rake "run_all_tasks"
 end
