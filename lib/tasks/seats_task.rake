@@ -23,6 +23,7 @@ task :run_all_tasks => :environment do
     }
 
     page.post(url, data)
+    pp page.page.body.force_encoding("utf-8")
   end
 end
 

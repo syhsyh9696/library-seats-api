@@ -17,8 +17,14 @@
         <%= f.text_area :end, :class => "string optional form-control" %>
     </div>
     <div class="form-group string optional">
-        <%= f.label "seat", :class => "string optional control-label" %>
-        <%= f.text_area :seat, :class => "string optional form-control" %>
+        <% if params[:seat_id] == nil %>
+          <%= f.label "seat", :class => "string optional control-label" %>
+          <%= f.text_area :seat, :class => "string optional form-control" %>
+        <% end %>
+        <% if params[:seat_id] != nil %>
+          <%= f.label "seat", :class => "string optional control-label" %>
+          <%= f.text_area :seat, :value => params[:seat_id],:class => "string optional form-control" %>
+        <% end %>
     </div>
     <div class="form-group string optional">
         <%= f.label "remark", :class => "string optional control-label" %>

@@ -22,7 +22,7 @@
           <td><%= task.username %></td>
           <td><%= (task.start.to_i)/60 %> o'clock</td>
           <td><%= (task.end.to_i)/60 %> o'clock</td>
-          <td><%= task.seat %></td>
+          <td><%= Seat.find(task.seat).seat_name %></td>
           <td><%= task.remark %></td>
           <td>
               <%= link_to("Edit", edit_task_path(task), class: "btn btn-sm btn-default")%>

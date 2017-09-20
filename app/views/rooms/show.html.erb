@@ -13,7 +13,7 @@
       <% @seats.each do |seat| %>
         <tr>
           <td>#</td>
-          <td><%= seat.id %></td>
+          <td><%= link_to seat.id, new_task_path(:seat_id => seat.id) %></td>
           <td><%= seat.seat_id %></td>
           <td><%= seat.seat_name %></td>
         </tr>
