@@ -23,10 +23,35 @@ task :run_all_tasks => :environment do
     }
 
     page.post(url, data)
-    pp page.page.body.force_encoding("utf-8")
   end
 end
 
+desc 'Run all booking thread'
+task :run_all_tasks_thread => :environment do
+  tasks = Task.all.collect{ |x| x }.each_slice(5).to_a
+  threads = Array.new
+
+  tasks.each do |chunk|
+    threads << Thread.new do
+      page = Mechanize.new
+
+      chunk.each do |task|
+        url = "http://seat.ujn.edu.cn/rest/v2/freeBook"
+        data = {
+          "token" => token(task.username, task.password),
+          "startTime" => task.start,
+          "endTime" => task.end,
+          "seat" => task.seat.to_s,
+          "date" => (Time.new + 86400).strftime("%Y-%m-%d")
+        }
+        page.post(url, data)
+        pp page.page.body
+      end # Chunk end
+    end # Thread end
+  end # Task end
+
+  threads.map { |x| x }
+end
 
 # --- Method ---
 
