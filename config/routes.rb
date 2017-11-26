@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :seats, only: [:index, :show]
   end
 
-  resources :tasks
+  resources :tasks do
+    collection do
+      get 'checkin'
+    end
+  end
 
   mount API::Test => '/api'
   mount API::Library => '/api'

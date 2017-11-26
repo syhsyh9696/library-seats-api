@@ -37,17 +37,14 @@ class TasksController < ApplicationController
     @range = @hour * 60..(@hour + 1) * 60
 
     @tasks.each do |task|
-      @available << task if @range === task.start
+      @available << task if @range === task.start.to_i
     end
 
     @available.each do |task|
       @token << task.token
     end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @token }
-    end
+    render :json => @token
 
   end
 
