@@ -44,11 +44,7 @@ class TasksController < ApplicationController
       @token << task.token
     end
 
-    respond_to do |format|
-      format.js do
-        render :json => @token, :callback => params[:callback]
-      end
-    end
+    render :json => @token, :callback => params[:callback]
   end
 
 private
