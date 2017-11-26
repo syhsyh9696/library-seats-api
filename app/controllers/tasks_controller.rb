@@ -31,6 +31,26 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def checkin
+    @available = []; @token = []
+    @tasks = Task.all; @hour = Time.new.hour
+    @range = @hour * 60..(@hour + 1) * 60
+
+    @tasks.each do |task|
+      @available << task if @range === task.start
+    end
+
+    @available.each do |task|
+      @token << task.token
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @token }
+    end
+
+  end
+
 private
   def task_params
     params.require(:task).permit(:username, :password, :start, :end, :seat, :remark)

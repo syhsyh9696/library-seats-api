@@ -20,7 +20,7 @@
 
 * Gem: whenever - 利用Ruby创建Crontab任务的DSL
 
-* Crontab - 你电脑都有
+* Crontab - 你的服务器都有
 
 ## 你需要什么来部署这个有趣的玩意呢
 
@@ -33,6 +33,12 @@
 * Database initialization: Check ./config/database.yml
 
 * Database creation: 'rake db:create'
+
+## 需要执行什么命令呢
+
+* Rake - 'rake db:create'
+* Rake - 'rake db:migrate'
+* Gem(whenever) - 'whenever -i'
 
 ## 当然这里是废话
 

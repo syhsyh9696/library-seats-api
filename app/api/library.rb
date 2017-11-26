@@ -73,6 +73,10 @@ module API
 
         result
       end
+
+      def available_token
+
+      end
     end
 
     namespace :library do
@@ -103,6 +107,7 @@ module API
       get '/fav/:number/:password' do
         fav_seat(params[:number], params[:password])
       end
+
 
     end
   end
