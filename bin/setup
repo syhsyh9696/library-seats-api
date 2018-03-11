@@ -29,6 +29,14 @@ chdir APP_ROOT do
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'
 
+  puts "\n== Insert rooms && seats data into database =="
+  puts "\n== Enter your mysql root password here =="
+  system! 'mysqldump --all-databases --single-transaction --user=root --password > database_ujn/library-seats-api_development.sql'
+
+  puts "\n== Add whenever job into Crontab =="
+  system! 'whenever -i'
+
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
+
 end

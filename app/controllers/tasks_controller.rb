@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
+    @task.save if Seat.find(task_params[:seat_id])
 
     redirect_to tasks_path
   end
