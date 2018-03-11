@@ -40,7 +40,7 @@ gem 'grape'
 gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'mechanize'
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.8.1'
 
 gem 'bootstrap-sass'
 gem 'whenever', :require => false
