@@ -1,8 +1,9 @@
-<div class="col-md-12">
+<div class="container">
   <div class="task">
-    <%= link_to("New task", new_task_path, class: "btn btn-primary pull-right") %>
+    <%= link_to("New task", new_task_path, class: "btn btn-primary") %>
   </div>
-  <table class="table table-hover">
+  <br />
+  <table class="table table-hover table-striped">
     <thead>
       <tr>
         <td>#</td>
@@ -16,20 +17,38 @@
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
-        <tr>
-          <td>#</td>
-          <td><%= task.id %></td>
-          <td><%= task.username %></td>
-          <td><%= (task.start.to_i)/60 %> o'clock</td>
-          <td><%= (task.end.to_i)/60 %> o'clock</td>
-          <td><%= Seat.find(task.seat).seat_name %></td>
-          <td><%= task.remark %></td>
-          <td>
-              <%= link_to("Edit", edit_task_path(task), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", task_path(task),    class: "btn btn-sm btn-default",
+        <% seat = Seat.find_by(id: task.seat) %>
+        <% if seat != nil %>
+          <tr>
+            <td>#</td>
+            <td><%= task.id %></td>
+            <td><%= task.username %></td>
+            <td><%= (task.start.to_i)/60 %> o'clock</td>
+            <td><%= (task.end.to_i)/60 %> o'clock</td>
+            <td><%= seat.seat_name %></td>
+            <td><%= task.remark %></td>
+            <td>
+              <%= link_to("Edit", edit_task_path(task), class: "btn btn-xs btn-info")%>
+              <%= link_to("Delete", task_path(task),    class: "btn btn-xs btn-danger",
                           method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
-        </tr>
+            </td>
+          </tr>
+        <% else %>
+          <tr class="warning">
+            <td>#</td>
+            <td><%= task.id %></td>
+            <td><%= task.username %></td>
+            <td><%= (task.start.to_i)/60 %> o'clock</td>
+            <td><%= (task.end.to_i)/60 %> o'clock</td>
+            <td>This seat don't exist</td>
+            <td><%= task.remark %></td>
+            <td>
+              <%= link_to("Edit", edit_task_path(task), class: "btn btn-xs btn-info")%>
+              <%= link_to("Delete", task_path(task),    class: "btn btn-xs btn-danger",
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

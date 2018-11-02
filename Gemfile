@@ -44,6 +44,13 @@ gem 'nokogiri', '~> 1.8.1'
 
 gem 'bootstrap-sass'
 gem 'whenever', :require => false
+gem 'bootswatch-rails'
+gem "font-awesome-rails"
+gem 'jquery-rails'
+
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 
 
 group :development, :test do

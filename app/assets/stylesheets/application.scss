@@ -13,5 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ //Import bootstrap-sprockets
  @import "bootstrap-sprockets";
+
+ // Import cerulean variables
+ @import "bootswatch/flatly/variables";
+
+ // Then bootstrap itself
  @import "bootstrap";
+
+ // Bootstrap body padding for fixed navbar
+ body { padding-top: 80px; }
+
+ // And finally bootswatch style itself
+ @import "bootswatch/flatly/bootswatch";
