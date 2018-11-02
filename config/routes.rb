@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :seats, only: [:index, :show]
   end
 
+  resources :logs, only:[:index, :show]
+
   resources :tasks do
     collection do
       get 'checkin'

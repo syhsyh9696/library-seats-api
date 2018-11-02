@@ -1,0 +1,33 @@
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>USERNAME</th>
+      <th>SEAT</th>
+      <th>STATUS</th>
+      <th>TOKEN</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |log| %>
+      <% if log.status == 'success' %>
+        <tr class="success">
+          <td><%= log.id %></td>
+          <td><%=log.username%></td>
+          <td><%=log.seat%></td>
+          <td><%=log.status%></td>
+          <td><%=log.token%></td>
+        </tr>
+      <% else %>
+        <tr class="danger">
+          <td><%= log.id %></td>
+          <td><%=log.username%></td>
+          <td><%=log.seat%></td>
+          <td><%=log.status%></td>
+          <td><%=log.token%></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
