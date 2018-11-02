@@ -13,6 +13,7 @@ task :run_all_tasks => :environment do
   page = Mechanize.new
 
   Task.find_each do |task|
+    next if Seat.find_by(id: task.seat) == nil
     url = "http://seat.ujn.edu.cn/rest/v2/freeBook"
     data = {
       "token" => token(task.username, task.password),
@@ -23,6 +24,7 @@ task :run_all_tasks => :environment do
     }
 
     page.post(url, data)
+    save_log task.username, data['token'], data['seat'], page.page.body
   end
 end
 
@@ -63,4 +65,10 @@ def token user, pwd
   page = Mechanize.new
   page.get "http://seat.ujn.edu.cn/rest/auth?username=#{user}&password=#{pwd}"
   JSON.parse(page.page.body)['data']['token']
+end
+
+def save_log username, token, seat, data
+  log = Log.new
+  log.username = username; log.token = token; log.seat = seat; log.data = data
+  log.save
 end
