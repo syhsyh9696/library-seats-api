@@ -18,40 +18,6 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for ar_internal_metadata
--- ----------------------------
-DROP TABLE IF EXISTS `ar_internal_metadata`;
-CREATE TABLE `ar_internal_metadata` (
-  `key` varchar(255) NOT NULL,
-  `value` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of ar_internal_metadata
--- ----------------------------
-BEGIN;
-INSERT INTO `ar_internal_metadata` VALUES ('environment', 'development', '2018-03-11 06:48:05', '2018-03-11 06:48:05');
-COMMIT;
-
--- ----------------------------
--- Table structure for logs
--- ----------------------------
-DROP TABLE IF EXISTS `logs`;
-CREATE TABLE `logs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `seat` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `data` text,
-  `token` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
 -- Table structure for rooms
 -- ----------------------------
 DROP TABLE IF EXISTS `rooms`;
@@ -110,31 +76,6 @@ INSERT INTO `rooms` VALUES (58, '第三期刊阅览室（赠刊 五楼北）', '
 INSERT INTO `rooms` VALUES (59, '五楼走廊', '济南大学东校区', 5, 34);
 INSERT INTO `rooms` VALUES (60, '信息共享空间（一楼南）', '济南大学东校区', 1, 85);
 INSERT INTO `rooms` VALUES (62, '文化展厅（一楼北）', '济南大学东校区', 1, 200);
-COMMIT;
-
--- ----------------------------
--- Table structure for schema_migrations
--- ----------------------------
-DROP TABLE IF EXISTS `schema_migrations`;
-CREATE TABLE `schema_migrations` (
-  `version` varchar(255) NOT NULL,
-  PRIMARY KEY (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of schema_migrations
--- ----------------------------
-BEGIN;
-INSERT INTO `schema_migrations` VALUES ('20170913055128');
-INSERT INTO `schema_migrations` VALUES ('20170913062534');
-INSERT INTO `schema_migrations` VALUES ('20170919100208');
-INSERT INTO `schema_migrations` VALUES ('20170919100615');
-INSERT INTO `schema_migrations` VALUES ('20170919112125');
-INSERT INTO `schema_migrations` VALUES ('20170919122943');
-INSERT INTO `schema_migrations` VALUES ('20170919123616');
-INSERT INTO `schema_migrations` VALUES ('20181102044832');
-INSERT INTO `schema_migrations` VALUES ('20181102071511');
-INSERT INTO `schema_migrations` VALUES ('20181102072053');
 COMMIT;
 
 -- ----------------------------
@@ -5029,20 +4970,3 @@ INSERT INTO `seats` VALUES (43867, '056', '信息共享空间（一楼南）056�
 INSERT INTO `seats` VALUES (43868, '054', '信息共享空间（一楼南）054号', 60);
 INSERT INTO `seats` VALUES (43869, '053', '信息共享空间（一楼南）053号', 60);
 COMMIT;
-
--- ----------------------------
--- Table structure for tasks
--- ----------------------------
-DROP TABLE IF EXISTS `tasks`;
-CREATE TABLE `tasks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `start` varchar(255) DEFAULT NULL,
-  `end` varchar(255) DEFAULT NULL,
-  `seat` int(11) DEFAULT NULL,
-  `remark` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-SET FOREIGN_KEY_CHECKS = 1;
