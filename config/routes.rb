@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   mount API::Test => '/api'
   mount API::Library => '/api'
+
+  get 'update_crontab', to: 'crontab#update_crontab_file'
 end
