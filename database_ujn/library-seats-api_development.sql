@@ -18,19 +18,6 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for rooms
--- ----------------------------
-DROP TABLE IF EXISTS `rooms`;
-CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `campus` varchar(255) DEFAULT NULL,
-  `floor` int(11) DEFAULT NULL,
-  `seat_counts` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
-
--- ----------------------------
 -- Records of rooms
 -- ----------------------------
 BEGIN;
@@ -77,18 +64,6 @@ INSERT INTO `rooms` VALUES (59, '五楼走廊', '济南大学东校区', 5, 34);
 INSERT INTO `rooms` VALUES (60, '信息共享空间（一楼南）', '济南大学东校区', 1, 85);
 INSERT INTO `rooms` VALUES (62, '文化展厅（一楼北）', '济南大学东校区', 1, 200);
 COMMIT;
-
--- ----------------------------
--- Table structure for seats
--- ----------------------------
-DROP TABLE IF EXISTS `seats`;
-CREATE TABLE `seats` (
-  `id` int(11) NOT NULL,
-  `seat_id` varchar(255) DEFAULT NULL,
-  `seat_name` varchar(255) DEFAULT NULL,
-  `room_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of seats
