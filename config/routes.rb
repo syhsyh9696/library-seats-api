@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   mount API::Library => '/api'
 
   get 'update_crontab', to: 'crontab#update_crontab_file'
+  get 'deploy_method', to: 'deploy#index'
 end
