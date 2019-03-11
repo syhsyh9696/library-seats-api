@@ -39,6 +39,7 @@ gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 gem 'mechanize'
 gem 'nokogiri'
+gem 'httparty'
 
 gem 'devise'
 gem 'devise-i18n'
