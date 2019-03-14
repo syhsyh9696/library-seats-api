@@ -5,7 +5,8 @@
       <th>USERNAME</th>
       <th>SEAT</th>
       <th>STATUS</th>
-      <th>TOKEN</th>
+      <th>START</th>
+      <th>END</th>
     </tr>
   </thead>
 
@@ -17,7 +18,8 @@
           <td><%=log.username%></td>
           <td><%=log.seat%></td>
           <td><%=log.status%></td>
-          <td><%=log.token%></td>
+          <td><%=log.start_time%></td>
+          <td><%=log.end_time %></td>
         </tr>
       <% else %>
         <tr class="danger">
@@ -25,7 +27,8 @@
           <td><%=log.username%></td>
           <td><%=log.seat%></td>
           <td><%=log.status%></td>
-          <td><%=log.token%></td>
+          <td><%=log.start_time%></td>
+          <td><%=log.end_time %></td>
         </tr>
       <% end %>
     <% end %>

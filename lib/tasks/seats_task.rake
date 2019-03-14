@@ -55,15 +55,6 @@ task :run_all_tasks_thread => :environment do
   threads.map { |x| x }
 end
 
-desc 'Time delay'
-task :auto_run_tasks => :environment do
-  Rake::Task['run_all_tasks'].reenable
-  sleep 3
-  Rake::Task['run_all_tasks'].invoke
-  sleep 1.5
-  Rake::Task['run_all_tasks'].invoke
-end
-
 # --- Method ---
 
 def first_room

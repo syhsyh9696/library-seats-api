@@ -42,7 +42,7 @@ class Jovian
     JSON.parse(request(:get, url_filter.call, self.token).body)
   end
 
-  def history(page, count)
+  def history(page = 1, count = 20)
     url_history = -> (page, count){ BASE_URL + "/rest/v2/history/#{page}/#{count}" }
     JSON.parse(request('get', url_history.call(page, count), self.token).body)
   end
@@ -64,13 +64,16 @@ class Jovian
 
   def cancel_the_recent_one
     id = -> (hash_element){ hash_element['id'] }
-    reservations_id_array = self.reservations['data'].collect &id
+    reservations = self.reservations['data']
+    return false if reservations.nil?
+    reservations_id_array = reservations.collect &id
+    return nil if reservations_id_array.nil?
     self.cancel(reservations_id_array[0])
   end
 
   def cancel_all
     id = -> (hash_element){ hash_element['id'] }
-    iter = -> (resv){ self.cancel(resv) }
+    iter = -> (resv){ self.cancel(resv) unless resv.nil? }
     self.reservations['data'].collect(&id).each(&iter)
   end
 
