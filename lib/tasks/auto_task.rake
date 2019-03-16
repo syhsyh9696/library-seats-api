@@ -23,6 +23,6 @@ task :auto_run_tasks => :environment do
       result = user.book(task.seat, task.start, task.end, 1)
     end
     store_log.call(task.username, task.seat, result, task.start, task.end)
-    CheckinJob.set(wait_until: (Date.tomorrow + task.start.minutes)).perform_later(task.username, task.password)
+    CheckinJob.set(wait_until: (Date.tomorrow + task.start.to_i.minutes)).perform_later(task.username, task.password)
   end
 end

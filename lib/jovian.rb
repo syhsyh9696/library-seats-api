@@ -63,12 +63,13 @@ class Jovian
   end
 
   def cancel_the_recent_one
-    id = -> (hash_element){ hash_element['id'] }
-    reservations = self.reservations['data']
+    reservations = self.history['data']['reservations']
     return false if reservations.nil?
-    reservations_id_array = reservations.collect &id
-    return nil if reservations_id_array.nil?
-    self.cancel(reservations_id_array[0])
+    valid_reservation = reservations.find {|e| e['stat'] == "RESERVE"}
+    reservations_id = valid_reservation.size == 0 ? nil : valid_reservation['id']
+    return false if reservations_id.nil?
+    self.cancel(reservations_id)
+    return true
   end
 
   def cancel_all

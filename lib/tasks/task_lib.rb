@@ -5,7 +5,7 @@ module TaskLib
 
   def fake_reservation
     user = Jovian.new(220141222001, 100325)
-    user.book(40942, 1200, 1260, 0)
+    user.book(40718, 420, 480, 1)
   end
 
   def fake_cancel
@@ -19,6 +19,7 @@ module TaskLib
       fake_cancel
       return true
     elsif result['status'] == 'fail' && result['code'] == '1'
+      fake_cancel
       return false
     end
   end
