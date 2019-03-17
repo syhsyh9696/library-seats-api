@@ -3,7 +3,7 @@ include TaskLib
 
 desc 'New auto send task [v1.1]'
 task :auto_run_tasks => :environment do
-  attempt_max = 200
+  attempt_max = 5000
   while attempt_max > 0 do
     break if server_on?
     attempt_max -= 1
