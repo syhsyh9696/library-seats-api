@@ -1,4 +1,5 @@
-# README
+# README 
+[![Build Status](https://travis-ci.org/syhsyh9696/library-seats-api.svg?branch=master)](https://travis-ci.org/syhsyh9696/library-seats-api)
 
 ## 卧槽你他妈的用来挣钱是不是有点过分呢？
 
