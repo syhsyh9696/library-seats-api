@@ -26,7 +26,7 @@ every :day, :at => '05:00am' do
 end
 
 every :day, :at => '04:59am' do
-  rake 'Run all booking tasks'
+  rake 'run_all_tasks'
 end
 
 

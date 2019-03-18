@@ -10,7 +10,7 @@ end
 
 desc 'Run all booking tasks'
 task :run_all_tasks => :environment do
-  sleep(3)
+  sleep(64)
   page = Mechanize.new
 
   Task.find_each do |task|
