@@ -22,7 +22,7 @@ set :environment, "development"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
 every :day, :at => '04:49am' do
-  sleep(55)
+  sleep(58)
   rake "auto_run_tasks"
 end
 

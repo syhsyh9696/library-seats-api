@@ -7,7 +7,6 @@ task :auto_run_tasks => :environment do
   while attempt_max > 0 do
     break if server_on?
     attempt_max -= 1
-    puts attempt_max
   end
 
   store_log = -> (username, seat, data, start_time, end_time){

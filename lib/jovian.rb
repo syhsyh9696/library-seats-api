@@ -66,7 +66,6 @@ class Jovian
     reservations = self.history(1,10000)['data']['reservations']
     return false if reservations.nil?
     valid_reservation = reservations.find {|e| e['stat'] == "RESERVE"}
-    puts valid_reservation
     reservations_id = valid_reservation.size == 0 ? nil : valid_reservation['id']
     return false if reservations_id.nil?
     self.cancel(reservations_id)
