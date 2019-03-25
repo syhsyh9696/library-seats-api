@@ -7,6 +7,7 @@
       <th>STATUS</th>
       <th>START</th>
       <th>END</th>
+      <th>CREATED</th>
     </tr>
   </thead>
 
@@ -20,6 +21,7 @@
           <td><%=log.status%></td>
           <td><%=log.start_time%></td>
           <td><%=log.end_time %></td>
+          <td><%=log.created_at %></td>
         </tr>
       <% else %>
         <tr class="danger">
@@ -29,8 +31,10 @@
           <td><%=log.status%></td>
           <td><%=log.start_time%></td>
           <td><%=log.end_time %></td>
+          <td><%=log.created_at %></td>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 </table>
+<%= paginate @logs, :theme => 'twitter-bootstrap-3' %></div>

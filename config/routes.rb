@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -22,4 +24,6 @@ Rails.application.routes.draw do
 
   get 'update_crontab', to: 'crontab#update_crontab_file'
   get 'deploy_method', to: 'deploy#index'
+
+  mount Sidekiq::Web => '/sidekiq'
 end

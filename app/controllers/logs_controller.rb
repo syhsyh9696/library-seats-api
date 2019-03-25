@@ -1,5 +1,5 @@
 class LogsController < ApplicationController
   def index
-    @logs = Log.take(50)
+    @logs = Log.order(id: :desc).page params[:page]
   end
 end

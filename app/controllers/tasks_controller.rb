@@ -47,7 +47,7 @@ class TasksController < ApplicationController
     render :json => @token, :callback => params[:callback]
   end
 
-private
+  private
   def task_params
     params.require(:task).permit(:username, :password, :start, :end, :seat, :remark)
   end

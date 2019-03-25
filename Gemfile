@@ -1,4 +1,4 @@
-source 'https://rubygems.org/'
+source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -45,6 +45,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 
+gem 'sidekiq'
 
 gem 'bootstrap-sass'
 gem 'whenever', :require => false
