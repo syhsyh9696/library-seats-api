@@ -25,7 +25,7 @@ task :run_all_tasks => :environment do
     }
 
     page.post(url, data)
-    save_log task.username, data['token'], data['seat'], page.page.body
+    save_log task.username, data['token'], data['seat'], page.page.body, task.start, task.end
   end
 end
 
@@ -68,8 +68,11 @@ def token user, pwd
   JSON.parse(page.page.body)['data']['token']
 end
 
-def save_log username, token, seat, data
+def save_log username, token, seat, data, start_time, end_time
   log = Log.new
-  log.username = username; log.token = token; log.seat = seat; log.data = data
-  log.save
+  log.username = username
+  log.seat = seat
+  log.data = data
+  log.start_time = start_time
+  log.save = end_time
 end
