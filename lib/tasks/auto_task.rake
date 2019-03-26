@@ -42,7 +42,7 @@ task :auto_run_tasks_delay => :environment do
     store_log.call(task.username, task.seat, result, task.start, task.end)
 
     if result['status'] == 'success'
-      CheckinJob.set(wait_until: (Date.tomorrow + task.start.to_i.minutes)).perform_later(task.username, task.password)
+      CheckinJob.set(wait_until: (Date.tomorrow.to_time + task.start.to_i.minutes)).perform_later(task.username, task.password)
     end
   end
 end
