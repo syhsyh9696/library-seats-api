@@ -1,7 +1,8 @@
 <div>
   <img style="display: block; margin: 0 auto;" src="https://raw.githubusercontent.com/syhsyh9696/library-seats-api/master/public/logo_long.png" alt="" />
 </div>
-[![Build Status](https://travis-ci.org/syhsyh9696/library-seats-api.svg?branch=master)](https://travis-ci.org/syhsyh9696/library-seats-api) [![License](https://img.shields.io/github/license/syhsyh9696/library-seats-api.svg)](https://github.com/syhsyh9696/library-seats-api/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/syhsyh9696/library-seats-api.svg?branch=master)](https://travis-ci.org/syhsyh9696/library-seats-api) 
+[![License](https://img.shields.io/github/license/syhsyh9696/library-seats-api.svg)](https://github.com/syhsyh9696/library-seats-api/blob/master/LICENSE)
 
 ---
 # 懒觉助手 考研克星
