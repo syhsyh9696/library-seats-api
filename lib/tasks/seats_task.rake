@@ -74,5 +74,6 @@ def save_log username, token, seat, data, start_time, end_time
   log.seat = seat
   log.data = data
   log.start_time = start_time
-  log.save = end_time
+  log.end_time = end_time
+  log.save
 end
