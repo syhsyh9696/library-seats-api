@@ -21,7 +21,7 @@
 2. [Jovian gem](https://github.com/syhsyh9696/Jovian) Ruby version. [未完工] (当然啥时候完工看心情
 
 当然第一直觉为后者的就来对了地方咯  
-* 这里是不一定啥时候存活的存活也不一定能用的[demo](104.168.171.175)
+* 这里是不一定啥时候存活的存活也不一定能用的[Demo](http://104.168.171.175)
 
 ## 它为啥叫Jovian这个奇怪的名字
 [Jovian是谁](https://en.wikipedia.org/wiki/Jovian_(emperor))  
